@@ -1,0 +1,136 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    font-family: 'Montserrat', sans-serif;
+    background-image: linear-gradient(315deg, #045de9 0%, #09c6f9 74%);
+}
+
+/* bardzo fajna opcja łamiąca kolor tła na stronie przechodzi z jedneog w drugi */
+
+.wrapper {
+
+    width: 440px;
+    background-color: #fff;
+    box-shadow: 0 0 10px black;
+}
+
+
+form {
+    padding: 40px;
+    font-size: 20px;
+}
+
+h1 {
+    margin-bottom: 30px;
+    /* centrujemy h1 - h1 jest inline:block i jest tekstem wiec ustawiamy go za pomcą text-align */
+    text-align: center;
+}
+
+
+.form-box {
+    margin-bottom: 15px;
+}
+
+.form-box label {
+    /* robimy display inline-block dla labeli (naturalnie maja display: inline) zeby moc pracowac na wymiarach, marginesach */
+    display: inline-block;
+    margin-bottom: 5px;
+
+}
+
+.form-box input {
+    /* dajemy inputowi 100% szerokosci rodzica, żeby byl na całą szerokosc wrappera */
+    width: 100%;
+    /* powiekszamy pading kazdego inputa zeby miał większa powierzchnię (z kazdej strony dookola o 10px) */
+    padding: 10px;
+    /* zwiekszamy czcionke wewnatrz inputa */
+    font-size: 16px;
+    border: 1px solid rgb(197, 197, 197);
+    border-radius: 5px;
+}
+
+/* tworzymy klase ktora bedzie uruchamiana w JS. cos co bedzie potrzebn w momencie keidy bdziemy zmieniali wlasciwosci za pomoca JS. Bedziemy sobie nadawali klase ERROR na naszego form-boxa i tam bedziemy chcieli ingerowac w inputa, żebysmy mogli wywolac formularz i cos jeszcze zrobic. Na próbe wpisalem recznie w htmlu dodatkowa klase error do form-box i od razu ta klasa została uruchomiona w tym inpucie*/
+.form-box.error input {
+    border: 1px solid rgb(0, 137, 250);
+    background-color: rgba(0, 137, 250, .1);
+}
+
+.form-box .error-text {
+    margin: 5px 0 0 10px;
+    font-size: 14px;
+    color: rgb(0, 137, 250);
+    /* a teraz bedziemy hcieli go ukryc i zamiast dac display:none damy visibility:hidden, bo jesli dalbym displaynone to tak jakby ten element zostal wyjęty i wszystko sie przesuwa do góry. A jak damy visibility hidden to ten element tam jest ale jest niewidoczny dzieki czemu nam sie nic nie przesuwa*/
+    visibility: hidden;
+}
+
+.form-box.error .error-text {
+    visibility: visible;
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.send,
+.clear,
+.close {
+    display: block;
+    padding: 10px 0;
+    margin-left: 10px;
+    /* szerokosc przycisku na 100px */
+    width: 100px;
+    font-size: 18px;
+    background-color: rgb(0, 140, 225);
+    color: #fff;
+    /* usuwamy ramke dookola buttonow */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color .9s;
+}
+
+.send:hover,
+.clear:hover,
+.close:hover {
+    background-color: rgb(0,107,194);
+}
+
+/* ustawiamy popup tak samo jak bylo ustawiane całe body - przemyslec temaat */
+.popup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: -300px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 600px;
+    height: 200px;
+    background-color: #fff;
+    border-radius: 8px;
+    border: 2px solid black;
+    transition: top .5s;
+}
+
+.popup p {
+    font-size: 28px;
+}
+
+.popup .close {
+    margin-top: 20px;
+}
+
+.show-popup {
+    top: 150px
+}
