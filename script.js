@@ -60,12 +60,12 @@ const checkErrors = () => {
     let errorsCounter = 0;
     const formBoxErrors = document.querySelectorAll('.form-box')
     formBoxErrors.forEach(el => {
-        if (el.classList.contains('error')) {
+        if (el.matches('.error')) {
             errorsCounter++
-        }
+    }   
     })
     if (errorsCounter === 0) {
-        popup.classList.add('show-popup')
+    popup.classList.add('show-popup')
     }
 }
 
